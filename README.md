@@ -1,14 +1,34 @@
-# Post To OpenCart Plugin
+Плагин **Post To OpenCart** предназначен для публикации постов из WordPress в OpenCart 2.3.x.
 
-This plugin allows to publish WP posts to OpenCart.
+После установки и активации плагина на странице "Настройки > Post To OpenCart":
 
-### Installation
+* Установить адрес сайта в поле **OpenCart URL**
+* Установить ключ в поле **OpenCart API Key**. 
 
-1. Upload `wp-post-to-opencart` to the `/wp-content/plugins/`  directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Set 'OpenCart URL' option.
-4. Set 'OpenCart API Key'. You can find the OpenCart API key on "System > Users > API" page in Your OpenCart admin panel
+![screenshot-1.png](screenshot-1.png)
 
-### Screenshots
-![Settings Screen](screenshot-1.png)
+Ключ API можно найти в админ панели OpenCart на странице "Система > Пользователи > API".
 
+Для работы плагина необходимо добавить дополнительное поле в редактор постов. Для этого установить плагин **Advanced Custom Fields** и настроить дополнительное поле:
+
+* тип записи - post
+* ярлык поля - Публиковать в ленте новостей LikBET
+* имя поля - push_to_likbet
+* выборы -
+```
+no : Нет
+yes : Да
+```
+![screenshot-2.png](screenshot-2.png)
+
+
+После этого в редакторе постов появляется поле "Публиковать в ленте новостей". Выбрав опцию **Да** и нажав кнопку **Публиковать** (**Обновить**) происходит сохранение текущего поста на сайт OpenCart:
+
+![screenshot-3.png](screenshot-3.png)
+
+
+## Настройки OpenCart
+
+В админ панели OpenCart необходимо разрешить доступ к API с сайта новостей. Лента новостей может принимать и сохранять посты от нескольких разных сайтов. Для этого на странице "Система > Пользователи > API" добавить новый ключ API для каждого источника (доменного имени). Во вкладке **IP адрес** добавить реальный IP адрес новостного сайта:
+
+![screenshot-4.png](screenshot-4.png)
